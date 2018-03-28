@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package bestgameever;
 
 public class ChestArmor extends Armor {
@@ -29,19 +28,3 @@ public class ChestArmor extends Armor {
        System.out.print("You have unwielded the armor :( ");
    }
 }
-=======
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package bestgameever;
-
-/**
- *
- * @author Usuario
- */
-public class ChestArmor {
-    
-}
->>>>>>> 7420929050f36bf30af9d0e624d9df17382b3992

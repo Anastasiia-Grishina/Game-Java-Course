@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 package bestgameever;
 
@@ -44,15 +43,3 @@ public class Helmet extends Armor {
        System.out.print("You have unwielded the armor :( ");
    }
 }
-=======
-/*
-package bestgameever;
-
-
-public class Helmet extends Armor {
-    private int strength;
-    
-
-}
-*/
->>>>>>> 7420929050f36bf30af9d0e624d9df17382b3992

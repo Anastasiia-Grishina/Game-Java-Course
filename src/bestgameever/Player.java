@@ -2,12 +2,6 @@ package bestgameever;
 
 import java.util.ArrayList;
 
-
-/**
- *
- * @author Jose
- */
-
 public class Player {
     private String race;
     private Inventory inventory;
@@ -20,7 +14,6 @@ public class Player {
         inventory = new Inventory();
     }
     
-<<<<<<< HEAD
     public void addItem( Item a ){
         inventory.addItem(a);
     }
@@ -45,20 +38,11 @@ public class Player {
         if (this.inventory.getItems().isEmpty()){
             System.out.println("No items in stock.");
         }
-=======
-    public void addItem( Item adamantChestArmor ){
-        inventory.addItem( adamantChestArmor );
-    }
-
-    public void showInventory() {
-        inventory.showInventory();
->>>>>>> 7420929050f36bf30af9d0e624d9df17382b3992
     }
     
     public Inventory getInventory(){
         return inventory;
     }
-    
     
     
 }

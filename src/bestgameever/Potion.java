@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -47,19 +46,3 @@ public class Potion extends Item{
         return s;
     }
 }
-=======
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package bestgameever;
-
-/**
- *
- * @author Usuario
- */
-public class Potion {
-    
-}
->>>>>>> 7420929050f36bf30af9d0e624d9df17382b3992

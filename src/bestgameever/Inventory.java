@@ -1,10 +1,8 @@
 
 package bestgameever;
 
-
 import java.util.ArrayList;
 
-<<<<<<< HEAD
 public class Inventory {
     private ArrayList<Item> items;
     private int size;
@@ -13,16 +11,6 @@ public class Inventory {
     private int maxWeight;
 
     public Inventory() {
-=======
-/**
- *
- * @author José
- */
-public class Inventory {
-    private ArrayList<Item> items;
-    
-    public Inventory() { 
->>>>>>> 7420929050f36bf30af9d0e624d9df17382b3992
         items = new ArrayList<>();
         this.maxSize = 24;
         this.maxWeight = 24;
@@ -34,7 +22,6 @@ public class Inventory {
         return items;
     }
     
-<<<<<<< HEAD
     public void addItem( Item a ){
         // change the size of the list and the sum weight
         if ( this.currentWeight + a.getWeight() < this.maxWeight){
@@ -84,23 +71,10 @@ public class Inventory {
             System.out.println(i.getName() + "\n" + i + 
                 "\nWeight: " + i.getWeight() + "\n");
         }
-=======
-    public void addItem(Item x){
-        items.add(x);
-    }
-    
-    public void showInventory(){
-            int n = 1;
-            for( Item i : items ){
-                System.out.println( "Item:" + n++ );
-                System.out.println( i + "\n"); // This is the reason we use @override command in items class.
-            }
->>>>>>> 7420929050f36bf30af9d0e624d9df17382b3992
     }
 
     public int getSize() {
         return size;
     }
     
- }
-
+}
