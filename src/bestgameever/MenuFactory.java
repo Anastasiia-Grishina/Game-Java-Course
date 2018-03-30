@@ -23,24 +23,26 @@ public class MenuFactory {
             return (menuFactory);
         }
     }
-    
+
     // different menus - printing only
-    
+
     public static void printMenu(){
         System.out.println( "\nChoose option you would like to do:" );
         System.out.println( "\t1) Create a player" );
         System.out.println( "\t2) Print a player" );
         System.out.println( "\t3) Delete a player" );
-        System.out.println( "\t4) Play with items" );        
+        System.out.println( "\t4) Play with items" );
         System.out.println( "\t0) Quit" );
     }
-    
+
     public static void printPlayWithItemsMenu(){
         System.out.println("\nChoose option you would like to do:");
         System.out.println( "\t1) Add an item" );
         System.out.println( "\t2) Delete an item" );
         System.out.println( "\t3) Show your items" );
-        System.out.println( "\t4) Use an item" ); 
+        System.out.println( "\t4) Use an item" );
+
+
         System.out.println( "\t0) Back to player menu");
     }
 
@@ -52,13 +54,13 @@ public class MenuFactory {
         System.out.println( "\t4) Book" );
         System.out.println( "\t0) Back to play with items menu");
     }
-    
+
     public static void printArmorMenu(){
             System.out.println("\nChoose your armor type: ");
             System.out.println("\t1) Chest armor");
             System.out.println("\t2) Helmet");
     }
-    
+
     // function to get an integer number from a user
     public static int getChoice(){
         // line to read
@@ -66,10 +68,10 @@ public class MenuFactory {
         // two additional variables
         Scanner scan;
         BufferedReader reader = new BufferedReader( new InputStreamReader( System.in ));
-        
+
         // actual choice to return
         int choice;
-        
+
         // do until an answer is integer
         while( true ){
             System.out.print( "Choice: " );
@@ -90,10 +92,10 @@ public class MenuFactory {
                 // excepion: not integer
                 System.err.println( "Error in input!" );
             }
-        }        
+        }
         return choice;
     }
-    
+
     // function requires to get an integer from a user console
     // which is between 0 and "max"
     // choice string = tells a user what he/she is choosing
@@ -105,7 +107,7 @@ public class MenuFactory {
         int num;
         do{
             System.out.println(choiceString);
-            System.out.print( "This parameter should be between 0 and " + 
+            System.out.print( "This parameter should be between 0 and " +
                     max + ": " );
             try {
                 line = reader.readLine();
@@ -120,12 +122,12 @@ public class MenuFactory {
                     break;
             } catch (IOException ex) {
                 System.err.println( "Error in reading input!" );
-            }            
+            }
         } while( true );
-        return (num);       
+        return (num);
     }
-    
-    
+
+
     public static Player createPlayer() {
         // auxiliary string variable
         String line;
@@ -136,7 +138,7 @@ public class MenuFactory {
         int strength;
         // auxiliary vars
         BufferedReader reader = new BufferedReader( new InputStreamReader( System.in ));
-        
+
         //Technically same as while-loop but the condition is evaluated at end.
         do{
             System.out.print( "\nChoose race: elf, ork, dwarf, human: " );
@@ -155,7 +157,7 @@ public class MenuFactory {
                     break;
                 }
                 else{
-                    System.out.println("Wrong race choice! Please, try again");                                    
+                    System.out.println("Wrong race choice! Please, try again");
                 }
             } catch (IOException ex) {
                 System.err.println( "Error in reading input!" );
@@ -179,11 +181,11 @@ public class MenuFactory {
         // choose from the menu
         printItemsMenu();
         int choice      = getChoice();
-          
+
         // future item
         Item newItem    = null;
-        int weight      = 0;    
-        
+        int weight      = 0;
+
         BufferedReader reader = new BufferedReader( new InputStreamReader( System.in ));
         switch ( choice ){
             // 1 = armor
@@ -191,10 +193,10 @@ public class MenuFactory {
                 weight          = enterNum( "\nChoose weight: ", 24);
                 int defence     = enterNum( "\nChoose defence: ", 10);
                 int extraBonus  = enterNum( "\nChoose extra bonus: ", 10);
-                
+
                 // choose between chest armor and helmet
                 printArmorMenu();
-                
+
                 int armorChoice = 0;
                 while (0==armorChoice){
                     armorChoice = getChoice();
@@ -202,12 +204,12 @@ public class MenuFactory {
                         armorChoice = 0;
                     }
                 }
-                
+
                 // assign item name according to user choice
                 String name = (armorChoice == 1)? "Chest armor": "Helmet";
                 // create a corresponding type of armor
-                newItem     = (armorChoice == 1)? new ChestArmor(name, weight, 
-                                defence, extraBonus): new Helmet(name, weight, 
+                newItem     = (armorChoice == 1)? new ChestArmor(name, weight,
+                                defence, extraBonus): new Helmet(name, weight,
                                 defence, extraBonus);
                 // it writes "added", but truly the item is only created, not added yet
                 System.out.println( "You have added " + name + " to your stock.");
@@ -223,7 +225,7 @@ public class MenuFactory {
                 } catch (IOException ex) {
                 System.err.println( "Error in reading input!" );
                 }
-                
+
                 weight              = enterNum( "\nChoose weight: ", 24);
                 int extraHealth     = enterNum( "\nChoose health points "
                         + "by potion type: ", 10);
@@ -231,9 +233,9 @@ public class MenuFactory {
                         + " by potion type: ", 10);
                 int extraWisdom     = enterNum( "\nChoose wisdom points "
                         + "by potion type: ", 10);
-                
+
                 // create an item
-                newItem             = new Potion( name, weight, extraHealth, 
+                newItem             = new Potion( name, weight, extraHealth,
                         extraStrength, extraWisdom);
                 System.out.println( "You have added " + name + " to your stock.");
                 break;
@@ -247,27 +249,27 @@ public class MenuFactory {
                     name        = reader.readLine();
                 } catch (IOException ex) {
                 System.err.println( "Error in reading input!" );
-                }  
-                
+                }
+
                 weight          = enterNum( "\nChoose weight: ", 24);
                 extraHealth     = enterNum( "\nChoose health points "
                         + "by food type: ", 10);
                 extraStrength   = enterNum( "\nChoose strength points "
                         + "by food type: ", 10);
-                
-                newItem         = new Food(name, weight, extraHealth, 
+
+                newItem         = new Food(name, weight, extraHealth,
                         extraStrength);
                 break;
             // 4 = book
             case 4:
                 name            = "Book";
-                
+
                 System.out.println("\nChoose type of book (any string): ");
                 try{
                     name = reader.readLine();
                 } catch (IOException ex) {
                 System.err.println( "Error in reading input!" );
-                }  
+                }
                 weight          = enterNum( "\nChoose weight: ", 24);
                 extraWisdom     = enterNum( "\nChoose wisdom points "
                         + "by book type: ", 10);
