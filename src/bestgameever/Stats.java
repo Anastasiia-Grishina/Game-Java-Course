@@ -10,13 +10,13 @@ package bestgameever;
  * @author aagri
  */
 public class Stats {
-    int currentHealth;
-    int maxHealth;
-    int strength;
-    int wisdom;
-    int bonus;
-    boolean helmet;
-    boolean chestArmor;
+    private int currentHealth;
+    private int maxHealth;
+    private int strength;
+    private int wisdom;
+    private int bonus;
+    private boolean helmet;
+    private boolean chestArmor;
     
     public Stats( int currentHealth, int strength, int wisdom){
         this.currentHealth  = currentHealth;
@@ -46,7 +46,7 @@ public class Stats {
         return currentHealth;
     }
 
-    public int getMaxHelath() {
+    public int getMaxHealth() {
         return maxHealth;
     }
 
@@ -64,6 +64,14 @@ public class Stats {
 
     public boolean isChestArmor() {
         return chestArmor;
+    }
+
+    public int getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
     }
 
     public void setCurrentHealth(int currentHealth) {
