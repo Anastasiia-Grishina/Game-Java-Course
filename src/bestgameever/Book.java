@@ -1,7 +1,7 @@
 package bestgameever;
 
 public class Book extends Item {
-    int extraWisdom;
+    private int extraWisdom;
     
     // default constructor
     public Book(){
@@ -15,9 +15,9 @@ public class Book extends Item {
     }
     
     public void use(Stats stats){
-        stats.wisdom += this.extraWisdom;
+        stats.setWisdom (stats.getWisdom() + this.extraWisdom);
         System.out.println("You have read a book " + super.getName());
-        System.out.println("Your current wisdom is " + stats.wisdom);
+        System.out.println("Your current wisdom is " + stats.getWisdom());
     }
     
     @Override
