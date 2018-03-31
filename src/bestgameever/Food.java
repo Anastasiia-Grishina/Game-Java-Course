@@ -1,8 +1,8 @@
 package bestgameever;
 
 public class Food extends Item {
-    int extraHealth;
-    int extraStrength;
+    private int extraHealth;
+    private int extraStrength;
     
     // default constructor
     Food(){
@@ -20,14 +20,14 @@ public class Food extends Item {
     
     // use and change stats
     public void use(Stats stats){
-        stats.currentHealth += extraHealth;
-        stats.strength += extraStrength;
-        if ( stats.currentHealth > stats.maxHealth ){
-            stats.currentHealth = stats.maxHealth;
+        stats.setCurrentHealth( stats.getCurrentHealth() + extraHealth );
+        stats.setStrength( stats.getStrength() + extraStrength );
+        if ( stats.getCurrentHealth() > stats.getMaxHealth() ){
+            stats.setCurrentHealth( stats.getMaxHealth() );
         } 
         System.out.println("You have eaten "+ super.getName() +
-                "\nYour current health is " + stats.currentHealth +
-                "\nYour strength is " + stats.strength);
+                "\nYour current health is " + stats.getCurrentHealth() +
+                "\nYour strength is " + stats.getStrength() );
     }
     
     @Override

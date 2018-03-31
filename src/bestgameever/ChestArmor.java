@@ -8,7 +8,7 @@ public class ChestArmor extends Armor {
     
     public void use(Stats stats){
         System.out.println("here in chest armor");
-        if (stats.chestArmor){
+        if (stats.isChestArmor()){
             unwield(stats);
         }
         else{
@@ -19,12 +19,12 @@ public class ChestArmor extends Armor {
     // when a user uses the armor for the next time,
     // he/she changes the state of "wearing an armor"    
     public void wield(Stats stats){
-        stats.chestArmor = true;
+        stats.setChestArmor(true);
         System.out.print("You have wielded the Armor :)" );            
     }
   
    public void unwield(Stats stats){
-       stats.chestArmor = false;
+       stats.setChestArmor(false);
        System.out.print("You have unwielded the armor :( ");
    }
 }
