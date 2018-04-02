@@ -2,7 +2,7 @@
 package bestgameever;
 //hello world
 public class BestGameEver {
-    
+
     public static void main(String[] args) {
         // variable to read the menu choice
         int choice = 100;
@@ -12,27 +12,28 @@ public class BestGameEver {
         String choiceString;
         //additional class with menu functions
         MenuFactory menu = MenuFactory.getInstance();
-        
+
         // do while a user does not want to stop (0=quit)
         while ( 0 != choice ){
-            
-            // starting menu deals with the player 
+
+            // starting menu deals with the player
             // (create, print, delete, do sth with items)
             menu.printMenu();
             // read input in the form of integer
             choice = menu.getChoice();
-            
+
             // choice cases
             switch ( choice ){
                 // 1 = create player
                 case 1 :
-                    player = menu.createPlayer();     
+                    // Create player with user customized stats ;
+                    player = menu.createPlayer();
                     // tell about an unsuccessful creation
-                    System.out.println( player == null ? "Creation failed!\n" : 
+                    System.out.println( player == null ? "Creation failed!\n" :
                             "New player created!\n" );
                     break;
                 // 2 = print a player
-                case 2 : 
+                case 2 :
                     // do not print a player if it has not been created yet
                     if ( player == null ){
                         System.out.println("A player does not exist!\n");
@@ -43,9 +44,9 @@ public class BestGameEver {
                     break;
                 case 3 :
                     // delete an existing player and report about that
-                    System.out.println( player == null ? "There is no player!\n" : 
+                    System.out.println( player == null ? "There is no player!\n" :
                             "Player deleted\n" );
-                    
+
                     // just delete once again to be on the safe side
                     player = null;
                     break;
@@ -56,13 +57,13 @@ public class BestGameEver {
                     }
                     else
                     {
-                        // print items actions menu (add, delete, show, use 
+                        // print items actions menu (add, delete, show, use
                         menu.printPlayWithItemsMenu();
-                        // use another choice variable not to lose 
+                        // use another choice variable not to lose
                         // the previous choice of an upper level menu
                         int choicePlayItems = menu.getChoice();
                         // realize choices
-                        switch ( choicePlayItems ){     
+                        switch ( choicePlayItems ){
                             // 1 = add item
                             case 1 :
                                 // ask which item to create
@@ -78,13 +79,13 @@ public class BestGameEver {
                                 player.showInventory();
                                 // remember current items list size
                                 int currentSize = player.getInventory().getItems().size();
-                                
-                                // if items exist (size > 0), 
+
+                                // if items exist (size > 0),
                                 // choose number of an item from a list to delete
                                 if (currentSize > 0){
                                     choiceString = "Choose item number to delete: ";
                                     // this number will be chosen out of 0..size-1 indices
-                                    int num = menu.enterNum( choiceString, 
+                                    int num = menu.enterNum( choiceString,
                                             currentSize-1);
                                     // delete
                                     player.deleteItem(num);
@@ -120,7 +121,7 @@ public class BestGameEver {
                             case 0:
                                 break;
                             default:
-                                System.err.println( "Wrong choice!\n" );  
+                                System.err.println( "Wrong choice!\n" );
                         }
                     }
                     break;
@@ -128,12 +129,12 @@ public class BestGameEver {
                 case 0:
                     break;
                 default:
-                    System.err.println( "Wrong choice!\n" );    
+                    System.err.println( "Wrong choice!\n" );
             }
         }
     }
-    
-    
+
+
     /*
         //1.2f - f means that the number is expressed as float (4bytes) instead of double (8bytes)
         Item a = new Weapon( "Axe", "Some description", 1.2f, 42 );
