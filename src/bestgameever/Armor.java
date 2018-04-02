@@ -26,7 +26,7 @@ public class Armor extends Item {
     // the function is redefined in the lower classes
     public void use(Stats stats){}
 
-    public int getDefence() {
+    public int getExtraDefence() {
         return defence;
     }
 

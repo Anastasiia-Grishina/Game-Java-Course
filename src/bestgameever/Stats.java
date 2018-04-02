@@ -10,14 +10,14 @@ package bestgameever;
  * @author aagri
  */
 public class Stats {
-    int currentHealth;
-    int maxHealth;
-    int strength;
-    int wisdom;
-    int bonus;
-    int defence;
-    boolean helmet;
-    boolean chestArmor;
+    private int currentHealth;
+    private int maxHealth;
+    private int strength;
+    private int wisdom;
+    private int bonus;
+    private int defence;
+    private boolean helmet;
+    private boolean chestArmor;
 
     public Stats( int currentHealth, int strength, int wisdom){
         this.currentHealth  = currentHealth;
@@ -37,7 +37,7 @@ public class Stats {
                 this.strength + "\nCurrent health: " +
                 this.currentHealth + " out of maximum " +
                 this.maxHealth + "\nBonuses: " + this.bonus +
-                "\n Current Defence:" + this.defence;
+                "\nCurrent Defence:" + this.defence;
 
         s       += (this.helmet) ? "\nHelmet is on" : "\nHelmet is off.";
         s       += (this.chestArmor) ? "\nChest armor is on" :
@@ -49,7 +49,7 @@ public class Stats {
         return currentHealth;
     }
 
-    public int getMaxHelath() {
+    public int getMaxHealth() {
         return maxHealth;
     }
 
@@ -77,6 +77,11 @@ public class Stats {
         return chestArmor;
     }
 
+
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
+    }
+
     public void setCurrentHealth(int currentHealth) {
         this.currentHealth = currentHealth;
     }
@@ -87,6 +92,10 @@ public class Stats {
 
     public void setWisdom(int wisdom) {
         this.wisdom = wisdom;
+    }
+
+    public void setDefence(int defence){
+      this.defence = defence;
     }
 
     public void setHelmet(boolean helmet) {

@@ -32,9 +32,9 @@ public class Potion extends Item{
     }
     
     public void use(Stats stats){
-        stats.currentHealth += this.extraHealth;
-        stats.strength += this.extraStrength;
-        stats.wisdom += this.extraWisdom;
+        stats.setCurrentHealth  ( stats.getCurrentHealth() + this.extraHealth );
+        stats.setStrength       (stats.getStrength() + this.extraStrength );
+        stats.setWisdom         ( stats.getWisdom() + this.extraWisdom );
         System.out.println("You have drunk some potion");
     }
     

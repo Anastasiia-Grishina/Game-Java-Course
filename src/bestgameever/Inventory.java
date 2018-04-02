@@ -24,9 +24,10 @@ public class Inventory {
 
     public void addItem( Item a ){
         // change the size of the list and the sum weight
-        if ( this.currentWeight + a.getWeight() < this.maxWeight){
-            this.size += 1;
-            this.currentWeight += a.getWeight();
+        if (( this.currentWeight + a.getWeight() < this.maxWeight)&
+                (this.size < this.maxSize)){
+            this.size           += 1;
+            this.currentWeight  += a.getWeight();
             items.add( a );
         if ( this.size > this.maxSize) {
               System.out.println("\n\n Your inventory is full");
@@ -51,8 +52,8 @@ public class Inventory {
         // if you eat food or drink potion, remove them from the list
         if ((item instanceof Food)||(item instanceof Potion)){
             items.remove(num);
-            this.currentWeight-=item.getWeight();
-            this.size -=1;
+            this.currentWeight  -=item.getWeight();
+            this.size           -=1;
         }
     }
 
@@ -70,9 +71,9 @@ public class Inventory {
         // (see inside every item realization)
         // BUT override function to_String does not allow to use "super"
         for( Item i : items ){
-            System.out.println( "Item:" + n++ );
-            System.out.println(i.getName() + "\n" + i +
-                "\nWeight: " + i.getWeight() + "\n");
+            System.out.println  ( "Item:" + n++ );
+            System.out.println  (i.getName() + "\n" + i +
+                                "\nWeight: " + i.getWeight() + "\n");
         }
     }
 

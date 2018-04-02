@@ -23,7 +23,8 @@ public class Helmet extends Armor {
     // when a user uses the armor for the next time,
     // he/she changes the state of "wearing an armor"
     public void use(Stats stats){
-        if (stats.chestArmor){
+        System.out.println(" You will wield Helmet ;) ");
+        if (stats.isHelmet()){
             unwield(stats);
         }
         else{
@@ -32,16 +33,16 @@ public class Helmet extends Armor {
     }
 
     public void wield(Stats stats){
-        stats.helmet = true;
-        stats.defence += super.getDefence();
-        stats.bonus += super.getExtraBonus();
-        System.out.print("You have wielded the " + super.getName() );
+        stats.setHelmet(true);
+        stats.setBonus( stats.getBonus() + super.getExtraBonus());
+        stats.setDefence(stats.getDefence() + super.getExtraDefence());
+        System.out.print("You have wielded the Helmet :" + super.getName() );
     }
 
    public void unwield(Stats stats){
-       stats.helmet = false;
-       stats.defence -= super.getDefence();
-       stats.bonus -= super.getExtraBonus();
-       System.out.print("You have unwielded the " + super.getName() );
+       stats.setHelmet(false);
+       stats.setBonus( stats.getBonus() - super.getExtraBonus());
+       stats.setDefence(stats.getDefence() - super.getExtraDefence());
+       System.out.print("You have unwielded the Helmet :" + super.getName());
    }
 }
