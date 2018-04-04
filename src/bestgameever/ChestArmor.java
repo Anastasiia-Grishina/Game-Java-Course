@@ -9,8 +9,13 @@ public class ChestArmor extends Armor {
     public void use(Stats stats){
 <<<<<<< HEAD
         System.out.println(" You will wield Chest Armor ;) ");
+=======
+<<<<<<< HEAD
         System.out.println(" You will wield Chest Armor ;) ");
+=======
         System.out.println("here in chest armor");
+>>>>>>> master
+>>>>>>> origin/Jose
         if (stats.isChestArmor()){
             unwield(stats);
         }
