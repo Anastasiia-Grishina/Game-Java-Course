@@ -34,12 +34,27 @@ public class Inventory {
             }
         }
         else{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/Jose
             System.out.println("\n\nYour do not have space in your stock.");
             System.out.println("Current weight: " + this.currentWeight +
                     "\nItem weight: " + a.getWeight() +
                     "\nMax possible weight " + this.maxWeight);
             System.out.println("Items in Inventory: " + this.size +
                     " out of " + this.maxSize + ".\n\n");
+<<<<<<< HEAD
+=======
+=======
+            System.out.println  ("\n\nYour do not have space in your stock.");
+            System.out.println  ("Current weight: " + this.currentWeight + 
+                                "\nItem weight: " + a.getWeight() + 
+                                "\nMax possible weight " + this.maxWeight);
+            System.out.println  ("Items in stock: " + this.size + 
+                                " out of " + this.maxSize + ".\n\n");
+>>>>>>> master
+>>>>>>> origin/Jose
         }
     }
 
@@ -72,7 +87,15 @@ public class Inventory {
         // BUT override function to_String does not allow to use "super"
         for( Item i : items ){
             System.out.println  ( "Item:" + n++ );
+<<<<<<< HEAD
             System.out.println  (i.getName() + "\n" + i +
+=======
+<<<<<<< HEAD
+            System.out.println  (i.getName() + "\n" + i +
+=======
+            System.out.println  (i.getName() + "\n" + i + 
+>>>>>>> master
+>>>>>>> origin/Jose
                                 "\nWeight: " + i.getWeight() + "\n");
         }
     }
