@@ -12,8 +12,8 @@ public class Inventory {
 
     public Inventory() {
         items = new ArrayList<>();
-        this.maxSize = 24;
-        this.maxWeight = 24;
+        this.maxSize = 50;
+        this.maxWeight = 50;
         this.size = 0;
         this.currentWeight = 0;
     }
@@ -34,27 +34,12 @@ public class Inventory {
             }
         }
         else{
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/Jose
-            System.out.println("\n\nYour do not have space in your stock.");
+            System.out.println("\n\nYour do not have space in your Inventory.");
             System.out.println("Current weight: " + this.currentWeight +
                     "\nItem weight: " + a.getWeight() +
                     "\nMax possible weight " + this.maxWeight);
             System.out.println("Items in Inventory: " + this.size +
                     " out of " + this.maxSize + ".\n\n");
-<<<<<<< HEAD
-=======
-=======
-            System.out.println  ("\n\nYour do not have space in your stock.");
-            System.out.println  ("Current weight: " + this.currentWeight + 
-                                "\nItem weight: " + a.getWeight() + 
-                                "\nMax possible weight " + this.maxWeight);
-            System.out.println  ("Items in stock: " + this.size + 
-                                " out of " + this.maxSize + ".\n\n");
->>>>>>> master
->>>>>>> origin/Jose
         }
     }
 
@@ -87,19 +72,11 @@ public class Inventory {
         // BUT override function to_String does not allow to use "super"
         for( Item i : items ){
             System.out.println  ( "Item:" + n++ );
-<<<<<<< HEAD
-            System.out.println  (i.getName() + "\n" + i +
-=======
-<<<<<<< HEAD
-            System.out.println  (i.getName() + "\n" + i +
-=======
-            System.out.println  (i.getName() + "\n" + i + 
->>>>>>> master
->>>>>>> origin/Jose
+            System.out.println(i.getName() + "\n" + i +
                                 "\nWeight: " + i.getWeight() + "\n");
         }
     }
-
+    
     public int getSize() {
         return size;
     }
