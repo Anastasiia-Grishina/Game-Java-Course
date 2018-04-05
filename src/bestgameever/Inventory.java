@@ -55,7 +55,10 @@ public class Inventory {
     }
     
     public void deleteItem( int num ){
+        size-=1;
+        currentWeight-=items.get(num).getWeight();
         items.remove(num);
+        
     }
 
     void showInventory() {
