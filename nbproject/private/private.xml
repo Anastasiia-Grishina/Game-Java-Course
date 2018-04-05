@@ -1,28 +1,14 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aagri/Documents/NetBeansProjects/BestGameEverNastia/Game-Java-Course/src/bestgameever/BestGameEver.java</file>
-        </group>
-    </open-files>
-</project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/ChestArmor.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/Helmet.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/Inventory.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/Food.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/Item.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/Book.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/MenuFactory.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/data/Book.csv</file>
+            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/data/Helmet.csv</file>
+            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/data/Potions.csv</file>
             <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/BestGameEver.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/Armor.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/data/Food.csv</file>
         </group>
     </open-files>
 </project-private>
->>>>>>> Jose

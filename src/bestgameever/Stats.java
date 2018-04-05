@@ -15,16 +15,10 @@ public class Stats {
     private int strength;
     private int wisdom;
     private int bonus;
-<<<<<<< HEAD
     private int defence;
     private boolean helmet;
     private boolean chestArmor;
-
-=======
-    private boolean helmet;
-    private boolean chestArmor;
     
->>>>>>> master
     public Stats( int currentHealth, int strength, int wisdom){
         this.currentHealth  = currentHealth;
         this.maxHealth      = 10;
@@ -83,12 +77,6 @@ public class Stats {
         return chestArmor;
     }
 
-<<<<<<< HEAD
-=======
-    public int getBonus() {
-        return bonus;
-    }
->>>>>>> master
 
     public void setBonus(int bonus) {
         this.bonus = bonus;

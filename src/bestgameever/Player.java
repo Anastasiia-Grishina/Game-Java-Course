@@ -14,7 +14,7 @@ public class Player {
         inventory = new Inventory();
     }
     
-    public void addItem( Item a ){
+   public void addItem( Item a ){
         inventory.addItem(a);
     }
 

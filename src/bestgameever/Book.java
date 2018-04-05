@@ -20,6 +20,10 @@ public class Book extends Item {
         System.out.println("Your current wisdom is " + stats.getWisdom());
     }
     
+    public int getExtraWisdom(){
+        return extraWisdom;
+    }
+    
     @Override
     public String toString(){
         String s = "Wisdom bonus: " + this.extraWisdom;

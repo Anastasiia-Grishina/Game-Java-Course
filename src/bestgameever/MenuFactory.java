@@ -1,19 +1,28 @@
 package bestgameever;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MenuFactory {
     private static MenuFactory menuFactory;
 
+
     // private constructor
     private MenuFactory(){};
 
-    // initialization + gettting instance/pointer to the class
+    // initialization + gettting instance/pointer to the class . This is a singleton.
     public static MenuFactory getInstance(){
         if (menuFactory == null){
             menuFactory = new MenuFactory();
@@ -37,10 +46,11 @@ public class MenuFactory {
 
     public static void printPlayWithItemsMenu(){
         System.out.println("\nChoose option you would like to do:");
-        System.out.println( "\t1) Add an item" );
+        System.out.println( "\t1) Create an item" );
         System.out.println( "\t2) Delete an item" );
         System.out.println( "\t3) Show your items" );
         System.out.println( "\t4) Use an item" );
+        System.out.println( "\t5) Preload items from first expansion");
 
 
         System.out.println( "\t0) Back to player menu");
@@ -282,4 +292,278 @@ public class MenuFactory {
         }
         return newItem;
     }
-}
+
+    public static Inventory loadBookItems() throws IOException{
+        // Loading of future item
+        Inventory newBookPack = new Inventory();
+        Item newItem = null;
+        String fileName = "data/Book.csv";
+        BufferedReader reader = null;
+        // Delimiter to read CSV file
+        String COMMA_DELIMITER =",";
+        //File file = new File(fileName); // read File itself
+        try {
+            // Reading the csv file
+            reader = new BufferedReader(new FileReader(fileName));
+            //Create List for holding Employee objects
+            //List<Item> ItemList = new ArrayList<Item>();
+
+            String line ="";
+
+            reader.readLine(); // ignore the first line
+            while( (line = reader.readLine()) != null){
+                //line = reader.readLine();
+                String[] itemDetails = line.split(COMMA_DELIMITER); // gets a whole line
+                System.out.println(itemDetails[0]);
+                if(itemDetails.length>0){
+                    // Save the employee details in Employee object
+                String name = itemDetails[0];
+                Integer weight =  Integer.valueOf(itemDetails[1]);
+                Integer extraWisdom = Integer.valueOf(itemDetails[2]);
+                newItem = new Book(name, weight, extraWisdom);
+                System.out.println("Item Created");
+                newBookPack.addItem(newItem);
+                System.out.println("Item added");
+                }
+            }
+            // Printing the Item List from the Expansion Pack
+            //for(Item e : newInventory.getItems())
+            //{
+            //    System.out.println(e.getName() + " " + e.getWeight() + "  "
+            //                       + e.getExtraWisdom());
+            //}
+                //String values[] = wholeLine.split(",");
+                //System.out.println(Arrays.toString(values));
+                //for (int i=0 ;i < line.length; i++)
+                //String name = values[0];
+                //int weight = Integer.valueOf(values[1]);
+                //int extraWisdom = Integer.valueOf(values[2]);
+        } catch(Exception ee){
+          ee.printStackTrace();
+        }
+        finally{
+            try {
+                reader.close();
+            }
+            catch(IOException ie){
+                System.out.println("Error occured while closing the Buffered Reader");
+                ie.printStackTrace();
+            }
+
+            //Logger.getLogger(BestGameEver.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return newBookPack;
+        }
+
+        public static Inventory loadFoodItems() throws IOException{
+        // Loading of future item
+        Inventory newFoodPack = new Inventory();
+        Item newItem = null;
+        String fileName = "data/Food.csv";
+        BufferedReader reader = null;
+        // Delimiter to read CSV file
+        String COMMA_DELIMITER =",";
+        //File file = new File(fileName); // read File itself
+        try {
+            // Reading the csv file
+            reader = new BufferedReader(new FileReader(fileName));
+            //Create List for holding Employee objects
+            //List<Item> ItemList = new ArrayList<Item>();
+            String line ="";
+            reader.readLine(); // ignore the first line
+            while( (line = reader.readLine()) != null){
+                //line = reader.readLine();
+                String[] itemDetails = line.split(COMMA_DELIMITER); // gets a whole line
+                System.out.println(itemDetails[0]);
+                if(itemDetails.length>0){
+                    // Save the employee details in Employee object
+                String name = itemDetails[0];
+                Integer weight =  Integer.valueOf(itemDetails[1]);
+                Integer extraHealth = Integer.valueOf(itemDetails[2]);
+                Integer extraStrength = Integer.valueOf(itemDetails[3]);
+                newItem = new Food(name, weight, extraHealth, extraStrength);
+                System.out.println("Item Created");
+                newFoodPack.addItem(newItem);
+                System.out.println("Item added");
+                }
+            }
+        } catch(Exception ee){
+          ee.printStackTrace();
+        }
+        finally{
+            try {
+                reader.close();
+            }
+            catch(IOException ie){
+                System.out.println("Error occured while closing the Buffered Reader");
+                ie.printStackTrace();
+            }
+            //Logger.getLogger(BestGameEver.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return newFoodPack;
+        }
+
+        public static Inventory loadHelmetItems() throws IOException{
+        // Loading of future item
+        Inventory newHelmetPack = new Inventory();
+        Item newItem = null;
+        String fileName = "data/Food.csv";
+        BufferedReader reader = null;
+        // Delimiter to read CSV file
+        String COMMA_DELIMITER =",";
+        //File file = new File(fileName); // read File itself
+        try {
+            // Reading the csv file
+            reader = new BufferedReader(new FileReader(fileName));
+            //Create List for holding Employee objects
+            //List<Item> ItemList = new ArrayList<Item>();
+            String line ="";
+            reader.readLine(); // ignore the first line
+            while( (line = reader.readLine()) != null){
+                //line = reader.readLine();
+                String[] itemDetails = line.split(COMMA_DELIMITER); // gets a whole line
+                System.out.println(itemDetails[0]);
+                if(itemDetails.length>0){
+                    // Save the employee details in Employee object
+                String name = itemDetails[0];
+                Integer weight =  Integer.valueOf(itemDetails[1]);
+                Integer extraDefence = Integer.valueOf(itemDetails[2]);
+                Integer extraBonus = Integer.valueOf(itemDetails[3]);
+                newItem = new Helmet(name, weight, extraDefence, extraBonus);
+                System.out.println("Item Created");
+                newHelmetPack.addItem(newItem);
+                System.out.println("Item added");
+                }
+            }
+            // Printing the Item List from the Expansion Pack
+            //for(Item e : newInventory.getItems())
+            //{
+            //    System.out.println(e.getName() + " " + e.getWeight() + "  "
+            //                       + e.getExtraWisdom());
+            //}
+                //String values[] = wholeLine.split(",");
+                //System.out.println(Arrays.toString(values));
+                //for (int i=0 ;i < line.length; i++)
+                //String name = values[0];
+                //int weight = Integer.valueOf(values[1]);
+                //int extraWisdom = Integer.valueOf(values[2]);
+        } catch(Exception ee){
+          ee.printStackTrace();
+        }
+        finally{
+            try {
+                reader.close();
+            }
+            catch(IOException ie){
+                System.out.println("Error occured while closing the Buffered Reader");
+                ie.printStackTrace();
+            }
+            //Logger.getLogger(BestGameEver.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return newHelmetPack;
+        }
+
+        public static Inventory loadPotionsItems() throws IOException{
+        // Loading of future item
+        Inventory newPotionsPack = new Inventory();
+        Item newItem = null;
+        String fileName = "data/Potions.csv";
+        BufferedReader reader = null;
+        // Delimiter to read CSV file
+        String COMMA_DELIMITER =",";
+        //File file = new File(fileName); // read File itself
+        try {
+            // Reading the csv file
+            reader = new BufferedReader(new FileReader(fileName));
+            //Create List for holding Employee objects
+            //List<Item> ItemList = new ArrayList<Item>();
+            String line ="";
+            reader.readLine(); // ignore the first line
+            while( (line = reader.readLine()) != null){
+                //line = reader.readLine();
+                String[] itemDetails = line.split(COMMA_DELIMITER); // gets a whole line
+                System.out.println(itemDetails[0]);
+                if(itemDetails.length>0){
+                    // Save the employee details in Employee object
+                String name = itemDetails[0];
+                Integer weight =  Integer.valueOf(itemDetails[1]);
+                Integer extraHealth = Integer.valueOf(itemDetails[2]);
+                Integer extraStrength = Integer.valueOf(itemDetails[3]);
+                Integer extraWisdom = Integer.valueOf(itemDetails[4]);
+                newItem = new Potion(name, weight, extraHealth, extraStrength,extraWisdom);
+                System.out.println("Item Created");
+                newPotionsPack.addItem(newItem);
+                System.out.println("Item added");
+                }
+            }
+
+        } catch(Exception ee){
+          ee.printStackTrace();
+        }
+        finally{
+            try {
+                reader.close();
+            }
+            catch(IOException ie){
+                System.out.println("Error occured while closing the Buffered Reader");
+                ie.printStackTrace();
+            }
+            //Logger.getLogger(BestGameEver.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return newPotionsPack;
+        }
+
+        public Inventory loadChestArmorItems(){
+          // Loading of future item
+        Inventory newChestArmorPack = new Inventory();
+        Item newItem = null;
+        String fileName = "data/chestArmor.csv";
+        BufferedReader reader = null;
+        // Delimiter to read CSV file
+        String COMMA_DELIMITER =",";
+        //File file = new File(fileName); // read File itself
+        try {
+            // Reading the csv file
+            reader = new BufferedReader(new FileReader(fileName));
+            //Create List for holding Employee objects
+            //List<Item> ItemList = new ArrayList<Item>();
+            String line ="";
+            reader.readLine(); // ignore the first line
+            while( (line = reader.readLine()) != null){
+                //line = reader.readLine();
+                String[] itemDetails = line.split(COMMA_DELIMITER); // gets a whole line
+                System.out.println(itemDetails[0]);
+                if(itemDetails.length>0){
+                    // Save the employee details in Employee object
+                String name = itemDetails[0];
+                Integer weight =  Integer.valueOf(itemDetails[1]);
+                Integer extraDefence = Integer.valueOf(itemDetails[2]);
+                Integer extraBonus = Integer.valueOf(itemDetails[3]);
+                newItem = new ChestArmor(name, weight, extraDefence, extraBonus);
+                System.out.println("Item Created");
+                newChestArmorPack.addItem(newItem);
+                System.out.println("Item added");
+                }
+            }
+        } catch(Exception ee){
+          ee.printStackTrace();
+        }
+        finally{
+            try {
+                reader.close();
+            }
+            catch(IOException ie){
+                System.out.println("Error occured while closing the Buffered Reader");
+                ie.printStackTrace();
+            }
+            //Logger.getLogger(BestGameEver.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return newChestArmorPack;
+        }
+
+    }
