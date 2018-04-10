@@ -1,19 +1,13 @@
 package bestgameever;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MenuFactory {
     private static MenuFactory menuFactory;
@@ -109,7 +103,7 @@ public class MenuFactory {
     // function requires to get an integer from a user console
     // which is between 0 and "max"
     // choice string = tells a user what he/she is choosing
-    public static int enterNum(String choiceString, int max){
+    public static int enterNum(String choiceString, int min, int max){
         String line;
         Scanner scan;
         BufferedReader reader = new BufferedReader( new InputStreamReader( System.in ));
@@ -117,8 +111,8 @@ public class MenuFactory {
         int num;
         do{
             System.out.println(choiceString);
-            System.out.print( "This parameter should be between 0 and " +
-                    max + ": " );
+            System.out.print( "This parameter should be between " + min +
+                    " and " + max + ": " );
             try {
                 line = reader.readLine();
                 scan = new Scanner( line );
@@ -126,7 +120,7 @@ public class MenuFactory {
                 // if not assign num = -1 to pass the next if-statement corectly
                 num = scan.hasNextInt() ? scan.nextInt() : -1;
                 // check if num is within the range [0; max]
-                if( num < 0 || num > max )
+                if( num < min || num > max )
                     System.out.println( "Incorrect input." );
                 else
                     break;
@@ -177,13 +171,13 @@ public class MenuFactory {
 
         // parameters should be within an interval [0; 10?]
         choiceString    = "\nChoose wisdom.";
-        wisdom          = enterNum(choiceString, 10);
+        wisdom          = enterNum(choiceString, 0, 10);
 
         choiceString    = "\nChoose current health.";
-        currentHealth   = enterNum(choiceString, 10);
+        currentHealth   = enterNum(choiceString, 0, 10);
 
         choiceString    = "\nChoose strength.";
-        strength        = enterNum(choiceString, 10);
+        strength        = enterNum(choiceString, 0, 10);
         return new Player( race, wisdom, strength, currentHealth );
     }
 
@@ -200,9 +194,9 @@ public class MenuFactory {
         switch ( choice ){
             // 1 = armor
             case 1:
-                weight          = enterNum( "\nChoose weight: ", 24);
-                int defence     = enterNum( "\nChoose defence: ", 10);
-                int extraBonus  = enterNum( "\nChoose extra bonus: ", 10);
+                weight          = enterNum( "\nChoose weight: ", 1, 24);
+                int defence     = enterNum( "\nChoose defence: ", 0, 10);
+                int extraBonus  = enterNum( "\nChoose extra bonus: ", 0, 10);
 
                 // choose between chest armor and helmet
                 printArmorMenu();
@@ -236,13 +230,13 @@ public class MenuFactory {
                 System.err.println( "Error in reading input!" );
                 }
 
-                weight              = enterNum( "\nChoose weight: ", 24);
+                weight              = enterNum( "\nChoose weight: ", 1, 24);
                 int extraHealth     = enterNum( "\nChoose health points "
-                        + "by potion type: ", 10);
+                        + "by potion type: ", 0, 10);
                 int extraStrength   = enterNum( "\nChoose strength points"
-                        + " by potion type: ", 10);
+                        + " by potion type: ", 0, 10);
                 int extraWisdom     = enterNum( "\nChoose wisdom points "
-                        + "by potion type: ", 10);
+                        + "by potion type: ", 0, 10);
 
                 // create an item
                 newItem             = new Potion( name, weight, extraHealth,
@@ -261,11 +255,11 @@ public class MenuFactory {
                 System.err.println( "Error in reading input!" );
                 }
 
-                weight          = enterNum( "\nChoose weight: ", 24);
+                weight          = enterNum( "\nChoose weight: ", 1, 24);
                 extraHealth     = enterNum( "\nChoose health points "
-                        + "by food type: ", 10);
+                        + "by food type: ", 0, 10);
                 extraStrength   = enterNum( "\nChoose strength points "
-                        + "by food type: ", 10);
+                        + "by food type: ", 0, 10);
 
                 newItem         = new Food(name, weight, extraHealth,
                         extraStrength);
@@ -280,9 +274,9 @@ public class MenuFactory {
                 } catch (IOException ex) {
                 System.err.println( "Error in reading input!" );
                 }
-                weight          = enterNum( "\nChoose weight: ", 24);
+                weight          = enterNum( "\nChoose weight: ", 1, 24);
                 extraWisdom     = enterNum( "\nChoose wisdom points "
-                        + "by book type: ", 10);
+                        + "by book type: ", 0, 10);
                 newItem         = new Book( name, weight, extraWisdom );
                 break;
             case 0:
@@ -296,7 +290,7 @@ public class MenuFactory {
     public static Inventory loadBookItems() throws IOException{
         // Loading of future item
         Inventory newBookPack = new Inventory();
-        Item newItem = null;
+        Book newItem = null;
         String fileName = "data/Book.csv";
         BufferedReader reader = null;
         // Delimiter to read CSV file
@@ -321,9 +315,9 @@ public class MenuFactory {
                 Integer weight =  Integer.valueOf(itemDetails[1]);
                 Integer extraWisdom = Integer.valueOf(itemDetails[2]);
                 newItem = new Book(name, weight, extraWisdom);
-                System.out.println("Item Created");
+//                System.out.println("Item Created");
                 newBookPack.addItem(newItem);
-                System.out.println("Item added");
+//                System.out.println("Item added");
                 }
             }
             // Printing the Item List from the Expansion Pack
@@ -359,7 +353,7 @@ public class MenuFactory {
         public static Inventory loadFoodItems() throws IOException{
         // Loading of future item
         Inventory newFoodPack = new Inventory();
-        Item newItem = null;
+        Food newItem = null;
         String fileName = "data/Food.csv";
         BufferedReader reader = null;
         // Delimiter to read CSV file
@@ -383,9 +377,9 @@ public class MenuFactory {
                 Integer extraHealth = Integer.valueOf(itemDetails[2]);
                 Integer extraStrength = Integer.valueOf(itemDetails[3]);
                 newItem = new Food(name, weight, extraHealth, extraStrength);
-                System.out.println("Item Created");
+//                System.out.println("Item Created");
                 newFoodPack.addItem(newItem);
-                System.out.println("Item added");
+//                System.out.println("Item added");
                 }
             }
         } catch(Exception ee){
@@ -408,8 +402,8 @@ public class MenuFactory {
         public static Inventory loadHelmetItems() throws IOException{
         // Loading of future item
         Inventory newHelmetPack = new Inventory();
-        Item newItem = null;
-        String fileName = "data/Food.csv";
+        Helmet newItem = null;
+        String fileName = "data/Helmet.csv";
         BufferedReader reader = null;
         // Delimiter to read CSV file
         String COMMA_DELIMITER =",";
@@ -432,9 +426,9 @@ public class MenuFactory {
                 Integer extraDefence = Integer.valueOf(itemDetails[2]);
                 Integer extraBonus = Integer.valueOf(itemDetails[3]);
                 newItem = new Helmet(name, weight, extraDefence, extraBonus);
-                System.out.println("Item Created");
+//                System.out.println("Item Created");
                 newHelmetPack.addItem(newItem);
-                System.out.println("Item added");
+//                System.out.println("Item added");
                 }
             }
             // Printing the Item List from the Expansion Pack
@@ -469,7 +463,7 @@ public class MenuFactory {
         public static Inventory loadPotionsItems() throws IOException{
         // Loading of future item
         Inventory newPotionsPack = new Inventory();
-        Item newItem = null;
+        Potion newItem = null;
         String fileName = "data/Potions.csv";
         BufferedReader reader = null;
         // Delimiter to read CSV file
@@ -494,9 +488,10 @@ public class MenuFactory {
                 Integer extraStrength = Integer.valueOf(itemDetails[3]);
                 Integer extraWisdom = Integer.valueOf(itemDetails[4]);
                 newItem = new Potion(name, weight, extraHealth, extraStrength,extraWisdom);
-                System.out.println("Item Created");
+//                System.out.println("Item Created");
                 newPotionsPack.addItem(newItem);
-                System.out.println("Item added");
+//                newPotionsPack.addItemHashMap(newItem);
+//                System.out.println("Item added");
                 }
             }
 
@@ -520,7 +515,7 @@ public class MenuFactory {
         public Inventory loadChestArmorItems(){
           // Loading of future item
         Inventory newChestArmorPack = new Inventory();
-        Item newItem = null;
+        ChestArmor newItem = null;
         String fileName = "data/chestArmor.csv";
         BufferedReader reader = null;
         // Delimiter to read CSV file
@@ -544,9 +539,10 @@ public class MenuFactory {
                 Integer extraDefence = Integer.valueOf(itemDetails[2]);
                 Integer extraBonus = Integer.valueOf(itemDetails[3]);
                 newItem = new ChestArmor(name, weight, extraDefence, extraBonus);
-                System.out.println("Item Created");
+//                System.out.println("Item Created");
                 newChestArmorPack.addItem(newItem);
-                System.out.println("Item added");
+//                newChestArmorPack.addItemHashMap(newItem);
+//                System.out.println("Item added");
                 }
             }
         } catch(Exception ee){
@@ -565,5 +561,19 @@ public class MenuFactory {
 
         return newChestArmorPack;
         }
-
+        
+        public static String chooseItem ( HashMap<String, Item> itemsHashMap ){
+            String name = "";
+            BufferedReader reader = new BufferedReader( new InputStreamReader( System.in ));
+            while ( null == itemsHashMap.get(name.toLowerCase()) ){
+                try{
+                    name = reader.readLine();
+                } catch (IOException ex) {
+                System.err.println( "Error in reading input!" );
+                }
+                System.out.println("\nNo such item. Please, try again.\n");
+            }
+            return name;
+        }
+        
     }
