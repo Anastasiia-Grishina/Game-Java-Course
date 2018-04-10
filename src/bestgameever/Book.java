@@ -16,7 +16,7 @@ public class Book extends Item {
     
     public void use(Stats stats){
         stats.setWisdom (stats.getWisdom() + this.extraWisdom);
-        System.out.println("You have read a book " + super.getName());
+        System.out.println("You have read a book " + this.getName());
         System.out.println("Your current wisdom is " + stats.getWisdom());
     }
     

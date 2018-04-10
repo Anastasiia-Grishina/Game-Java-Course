@@ -14,20 +14,36 @@ public class Player {
         inventory = new Inventory();
     }
     
-   public void addItem( Item a ){
+    public void addItem( Item a ){
         inventory.addItem(a);
     }
+//    public void addItemHashMap( Item a ){
+//        inventory.addItemHashMap(a);
+//    }
 
     public void useItem( int num ){
         inventory.useItem( num, this.stats );
     }
+    
+//    public void useItemHashMap( String name ){
+//        inventory.useItemHashMap( name, this.stats );
+//    }
+    
 
     public void deleteItem( int num ){
-        inventory.deleteItem( num );
+        inventory.deleteItem( num, this.stats );
     }
+//    
+//    public void deleteItemHashMap( String name ){
+//        inventory.deleteItemHashMap( name, this.stats );
+//    }
 
     public void showInventory(){
         inventory.showInventory();
+    }
+    
+    public void showInventoryShortly(){
+        inventory.showInventoryShortly();
     }
 
     public void printPlayer(){

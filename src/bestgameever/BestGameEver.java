@@ -42,7 +42,7 @@ public class BestGameEver {
                 case 2 : 
                     // do not print a player if it has not been created yet
                     if ( player == null ){
-                        System.out.println("A player does not exist!\n");
+                        System.out.println("\nA player does not exist!\n");
                     }
                     else
                         // print existing player
@@ -59,7 +59,7 @@ public class BestGameEver {
                 case 4 :
                     // 4 = play with items if a player exists
                     if ( player == null ){
-                        System.out.println("A player does not exist\n");
+                        System.out.println("\nA player does not exist\n");
                     }
                     else
                     {
@@ -77,12 +77,13 @@ public class BestGameEver {
                                 // create and add items
                                 Item a = menu.createItem();
                                 player.addItem(a);
+//                                player.addItemHashMap(a);
                                 break;
                             // 2 = delete an item
                             case 2 :
                                 // show items first
                                 System.out.println("Your items: ");
-                                player.showInventory();
+                                player.showInventoryShortly();
                                 // remember current items list size
                                 int currentSize = player.getInventory().getItems().size();
                                 
@@ -91,10 +92,12 @@ public class BestGameEver {
                                 if (currentSize > 0){
                                     choiceString = "Choose item number to delete: ";
                                     // this number will be chosen out of 0..size-1 indices
-                                    int num = menu.enterNum( choiceString, 
-                                            currentSize-1);
+                                    int num = menu.enterNum( choiceString, 1,
+                                            currentSize);
                                     // delete
-                                    player.deleteItem(num);
+                                    player.deleteItem(num-1);
+//                                    String itemName = menu.chooseItem(player.getInventory().getItemsHashMap());
+//                                    player.deleteItemHashMap(itemName);
                                 }
                                 else{
                                     System.out.println("No items to delete!\n");
@@ -108,16 +111,19 @@ public class BestGameEver {
                             case 4 :
                                 // print a list of items to know their indices
                                 System.out.println("Your items: ");
-                                player.showInventory();
+                                player.showInventoryShortly();
                                 // remember the size
                                 currentSize = player.getInventory().getSize();
                                 // use an item if any items exist
                                 if (currentSize > 0){
                                     // item is again chosen by its position in a list
-                                    choiceString = "Choose item number to use";
-                                    int num = menu.enterNum( choiceString,
-                                            currentSize-1);
-                                    player.useItem(num);
+                                    choiceString = "Choose item number to use: ";
+                                    int num = menu.enterNum( choiceString, 1,
+                                            currentSize);
+                                    player.useItem(num-1);
+                                    
+//                                    String itemName = menu.chooseItem(player.getInventory().getItemsHashMap());
+//                                    player.useItemHashMap(itemName);
                                 }
                                 else{
                                     System.out.println("No items to use!\n");

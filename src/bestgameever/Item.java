@@ -35,10 +35,6 @@ public abstract class Item {
       return name;
     }
     
-    public int getExtraWisdom(){
-        return getExtraWisdom();
-    }
-
 //    public String getDescription() { return description;}
 //    public float getValue() { return value;}
 
