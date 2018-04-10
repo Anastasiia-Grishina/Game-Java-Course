@@ -1,4 +1,3 @@
-
 package bestgameever;
 
 import java.util.ArrayList;

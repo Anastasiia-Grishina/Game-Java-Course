@@ -25,7 +25,7 @@ public class Food extends Item {
         if ( stats.getCurrentHealth() > stats.getMaxHealth() ){
             stats.setCurrentHealth( stats.getMaxHealth() );
         } 
-        System.out.println("You have eaten "+ super.getName() +
+        System.out.println("You have eaten "+ this.getName() +
                 "\nYour current health is " + stats.getCurrentHealth() +
                 "\nYour strength is " + stats.getStrength() );
     }
