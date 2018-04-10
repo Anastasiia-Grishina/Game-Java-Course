@@ -10,7 +10,7 @@ public abstract class Item {
     private int weight;
 //    private String description;
 //    private float value;
-    
+
     // constructor
     public Item( String name, int weight ){
 //( String name, String desc, float val ){
@@ -19,7 +19,7 @@ public abstract class Item {
 //        this.description = desc;
 //        this.value = val;
     }
-    
+
     // this function is used inside inventory.useItem(num, stats)
     // the item is already called by its num in the list, only stats needed
     public void use (Stats stats){
@@ -31,16 +31,22 @@ public abstract class Item {
         return weight;
     }
 
-    public String getName() {return name;}
+    public String getName() {
+      return name;
+    }
+    
+    public int getExtraWisdom(){
+        return getExtraWisdom();
+    }
 
 //    public String getDescription() { return description;}
 //    public float getValue() { return value;}
-    
+
     // just in case, if realizations of the class do not have override funciton
     @Override
     public String toString(){
     return "\n" + name;
     }
-    
-   
+
+
 }

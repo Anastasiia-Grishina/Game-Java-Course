@@ -1,9 +1,14 @@
 
 package bestgameever;
 //hello world
+
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class BestGameEver {
+     
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // variable to read the menu choice
         int choice = 100;
         // future player pointer
@@ -12,6 +17,8 @@ public class BestGameEver {
         String choiceString;
         //additional class with menu functions
         MenuFactory menu = MenuFactory.getInstance();
+       
+        
         
         // do while a user does not want to stop (0=quit)
         while ( 0 != choice ){
@@ -116,6 +123,29 @@ public class BestGameEver {
                                     System.out.println("No items to use!\n");
                                 }
                                 break;
+                            case 5 :
+                                Inventory expansionBookPack = menu.loadBookItems();
+                                for(int i=0; i < expansionBookPack.getItems().size();i++){
+                                    player.addItem(expansionBookPack.getItems().get(i));
+                                }
+                                Inventory expansionFoodPack = menu.loadFoodItems();
+                                for(int i=0; i < expansionFoodPack.getItems().size();i++){
+                                    player.addItem(expansionFoodPack.getItems().get(i));
+                                }
+                                Inventory expansionHelmetPack = menu.loadHelmetItems();
+                                for(int i=0; i < expansionHelmetPack.getItems().size();i++){
+                                    player.addItem(expansionHelmetPack.getItems().get(i));
+                                }
+                                Inventory expansionPotionsPack = menu.loadPotionsItems();
+                                for(int i=0; i < expansionPotionsPack.getItems().size();i++){
+                                    player.addItem(expansionPotionsPack.getItems().get(i));
+                                }
+                                Inventory expansionChestArmorPack = menu.loadChestArmorItems();
+                                for(int i=0; i < expansionChestArmorPack.getItems().size();i++){
+                                    player.addItem(expansionChestArmorPack.getItems().get(i));
+                                }
+                                break;
+                                
                             // 0 = quit the menu of playing with items
                             case 0:
                                 break;
