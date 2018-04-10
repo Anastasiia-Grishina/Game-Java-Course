@@ -12,8 +12,8 @@ public class Inventory {
 
     public Inventory() {
         items = new ArrayList<>();
-        this.maxSize = 50;
-        this.maxWeight = 50;
+        this.maxSize = 100;
+        this.maxWeight = 100;
         this.size = 0;
         this.currentWeight = 0;
     }

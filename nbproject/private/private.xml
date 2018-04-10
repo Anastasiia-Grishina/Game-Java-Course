@@ -4,11 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/MenuFactory.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/ChestArmor.java</file>
             <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/data/Book.csv</file>
+            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/Helmet.java</file>
             <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/data/Helmet.csv</file>
+            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/Potion.java</file>
             <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/data/Potions.csv</file>
             <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/src/bestgameever/BestGameEver.java</file>
             <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/data/Food.csv</file>
+            <file>file:/C:/Users/Usuario/Desktop/Bash/JAVA-VIDEOGAME/data/chestArmor.csv</file>
         </group>
     </open-files>
 </project-private>

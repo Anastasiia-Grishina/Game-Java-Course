@@ -323,7 +323,7 @@ public class MenuFactory {
                 newItem = new Book(name, weight, extraWisdom);
                 System.out.println("Item Created");
                 newBookPack.addItem(newItem);
-                System.out.println("Item added");
+                System.out.println("Item added to the Inventory");
                 }
             }
             // Printing the Item List from the Expansion Pack
@@ -385,7 +385,7 @@ public class MenuFactory {
                 newItem = new Food(name, weight, extraHealth, extraStrength);
                 System.out.println("Item Created");
                 newFoodPack.addItem(newItem);
-                System.out.println("Item added");
+                System.out.println("Item added to the Inventory");
                 }
             }
         } catch(Exception ee){
@@ -434,7 +434,7 @@ public class MenuFactory {
                 newItem = new Helmet(name, weight, extraDefence, extraBonus);
                 System.out.println("Item Created");
                 newHelmetPack.addItem(newItem);
-                System.out.println("Item added");
+                System.out.println("Item added to the Inventory");
                 }
             }
             // Printing the Item List from the Expansion Pack
@@ -496,7 +496,7 @@ public class MenuFactory {
                 newItem = new Potion(name, weight, extraHealth, extraStrength,extraWisdom);
                 System.out.println("Item Created");
                 newPotionsPack.addItem(newItem);
-                System.out.println("Item added");
+                System.out.println("Item added to the Inventory");
                 }
             }
 
@@ -546,7 +546,7 @@ public class MenuFactory {
                 newItem = new ChestArmor(name, weight, extraDefence, extraBonus);
                 System.out.println("Item Created");
                 newChestArmorPack.addItem(newItem);
-                System.out.println("Item added");
+                System.out.println("Item added to the Inventory");
                 }
             }
         } catch(Exception ee){
