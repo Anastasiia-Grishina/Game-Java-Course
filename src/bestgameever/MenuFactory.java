@@ -268,9 +268,17 @@ public class MenuFactory {
             case 4:
                 name            = "Book";
 
-                System.out.println("\nChoose type of book (any string): ");
+                System.out.println("\nChoose type of book from the following categories: ");
+                System.out.println("Choose from: Fiction, Adventure, Drama and Horror");
+                
                 try{
                     name = reader.readLine();
+                    while(!("fiction".equalsIgnoreCase(name) || "adventure".equalsIgnoreCase(name) || "drama".equalsIgnoreCase(name) || "horror".equalsIgnoreCase(name)))
+                 {
+                     System.out.println("Valid book types are: Fiction, Adventure, Drama and Horror");
+                     System.out.println("\nChoose type of book from these categories: ");
+                     name=reader.readLine();
+                 }
                 } catch (IOException ex) {
                 System.err.println( "Error in reading input!" );
                 }
